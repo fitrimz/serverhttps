@@ -19,7 +19,7 @@ class pelayan(BaseHTTPRequestHandler):
 		self.wfile.write(bytes(file_to_open, 'utf-8'))
 
 
-pelayan = socketserver.TCPServer(('0.0.0.0', 10000), http.server.SimpleHTTPRequestHandler)
+pelayan = socketserver.TCPServer(('192.168.1.22', 4443), http.server.SimpleHTTPRequestHandler)
 
 pelayan.socket = ssl.wrap_socket(pelayan.socket, certfile= "/home/nial/httpsServer/cert.pem", keyfile= "/home/nial/httpsServer/key.pem", server_side=True)
 pelayan.serve_forever()
